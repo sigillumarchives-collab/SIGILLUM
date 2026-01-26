@@ -4,119 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIGILLUM</title>
-    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #ffffff;
-            --ink-color: #000000;
-            /* Precise Font Sizes */
-            --header-size: 3.2rem;
-            --manifesto-size: 1.3rem;
-            --marginalia-size: 0.65rem;
-            --nav-size: 0.72rem;
+        /* 1. FONT ARCHIVE - Pulling from your assets folder */
+        @font-face {
+            font-family: 'Aboreto-Custom';
+            src: url('assets/Aboreto-Regular.woff') format('woff');
+        }
+        @font-face {
+            font-family: 'FuturaLT-Custom';
+            src: url('assets/FuturaLT.woff') format('woff');
+        }
+        @font-face {
+            font-family: 'Garamond-Custom';
+            src: url('assets/GaramondPremrPro.woff') format('woff');
         }
 
+        /* 2. CORE GEOMETRY */
         body, html {
-            background-color: var(--bg-color);
-            color: var(--ink-color);
+            background-color: #ffffff;
+            color: #000000;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
-        /* 1. THE HEADER */
+        /* 3. THE HEADER - EXACT REPLICA */
         .site-header {
             width: 90%;
             max-width: 1600px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 80px 0 60px 0;
+            padding: 90px 0 70px 0;
         }
 
         .header-left { flex: 1; text-align: left; }
-        .header-center { 
-            flex: 2; 
+        .logo-img { height: 50px; } /* Adjusted to match your TIFF scale */
+
+        .header-center {
+            flex: 2;
             text-align: center;
-            font-family: 'Aboreto', cursive;
-            font-size: var(--header-size);
-            letter-spacing: 0.6em;
-            text-transform: uppercase;
-        }
-        .header-right { 
-            flex: 1; 
-            display: flex; 
-            justify-content: flex-end; 
-            gap: 30px;
-            font-family: "Futura", sans-serif;
-            font-weight: 300;
-            font-size: var(--nav-size);
-            letter-spacing: 0.4em;
+            font-family: 'Aboreto-Custom', serif;
+            font-size: 3.5rem;
+            letter-spacing: 0.65em;
             text-transform: uppercase;
         }
 
-        .brand-logo { height: 50px; }
+        .header-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            gap: 40px;
+            font-family: 'FuturaLT-Custom', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.45em;
+            text-transform: uppercase;
+        }
 
-        /* 2. THE MAIN LAYOUT (Desktop) */
+        /* 4. THE MAIN CANVAS */
         .main-canvas {
             display: grid;
-            grid-template-columns: 300px 1fr;
+            grid-template-columns: 320px 1fr;
             width: 90%;
             max-width: 1600px;
-            gap: 100px;
+            gap: 130px;
             margin-top: 40px;
         }
 
-        /* Marginalia Style */
+        /* Marginalia: The Archival Left Column */
         .marginalia {
-            font-family: "Futura", sans-serif;
-            font-weight: 300;
-            font-size: var(--marginalia-size);
-            line-height: 2.2;
-            letter-spacing: 0.2em;
+            font-family: 'FuturaLT-Custom', sans-serif;
+            font-size: 0.65rem;
+            line-height: 2.3;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
         }
 
-        .archival-entry { margin-bottom: 80px; }
-        .score-img { width: 100%; margin-top: 25px; }
+        .archival-entry { margin-bottom: 95px; }
+        .score-img { width: 100%; margin-top: 35px; }
 
-        /* Manifesto Style */
+        /* The Statement: The Centered Sacred Word */
         .manifesto-body {
-            font-family: "Garamond Premier Pro", "Garamond", serif;
-            font-size: var(--manifesto-size);
-            line-height: 2.1;
+            font-family: 'Garamond-Custom', serif;
+            font-size: 1.4rem;
+            line-height: 2.15;
             text-align: justify;
             white-space: pre-line;
             padding-right: 40px;
+            color: #000;
         }
 
-        /* 3. RESPONSIVE DESIGN FOR DIFFERENT SCREENS */
-        @media (max-width: 1024px) {
-            :root {
-                --header-size: 2.2rem;
-                --manifesto-size: 1.15rem;
-            }
-            .main-canvas {
-                grid-template-columns: 1fr; /* Stacked layout for tablet/mobile */
-                gap: 60px;
-            }
-            .marginalia {
-                border-bottom: 0.5px solid #eee;
-                padding-bottom: 40px;
-            }
-            .site-header { flex-direction: column; gap: 40px; }
+        /* 5. RESPONSIVE ARCHITECTURE */
+        @media (max-width: 1100px) {
+            .site-header { flex-direction: column; gap: 50px; text-align: center; }
+            .header-right { justify-content: center; }
+            .main-canvas { grid-template-columns: 1fr; gap: 70px; }
+            .header-center { font-size: 2.5rem; }
+            .manifesto-body { padding-right: 0; }
         }
 
-        /* 4. THE FOOTER */
+        /* 6. THE FOOTER */
         .site-footer {
-            padding: 100px 0;
-            font-family: "Futura", sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 0.6em;
+            padding: 120px 0 80px 0;
+            font-family: 'FuturaLT-Custom', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.7em;
             text-transform: uppercase;
+            text-align: center;
         }
         .contact-link { text-decoration: none; color: #000; }
     </style>
@@ -125,7 +123,7 @@
 
     <header class="site-header">
         <div class="header-left">
-            <img src="assets/Logo_Black.png" class="brand-logo">
+            <img src="assets/Logo_Black.png" class="logo-img">
         </div>
         <div class="header-center">SIGILLUM</div>
         <div class="header-right">
@@ -175,3 +173,10 @@
             I would not be so harmful to speak about Yvaska, I can only say that I believe him of potential to be the artist of our age and all ages. One must support such who brings god down to us through his art and in need of much support we are. I would ask of you, dear reader, to know him through his art and his own words then through mine which are already in his shadow. Now, since I cannot stay though hopelessly it is to be wished, I must say my farewell. It was a pleasing thing to know you dear reader, I hope you’ll find us good.
         </main>
     </div>
+
+    <footer class="site-footer">
+        <a href="mailto:contact@sigillum.art" class="contact-link">CONTACT</a>
+    </footer>
+
+</body>
+</html>
