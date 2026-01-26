@@ -2,61 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIGILLUM | Artistic Imprint</title>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     <style>
+        /* General Site Logic (Futura Lt equivalent) */
         body {
             background-color: #000;
             color: #fff;
-            font-family: "Times New Roman", serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-            letter-spacing: 0.15em;
+            min-height: 100vh;
+            /* Using Century Gothic as a high-fidelity fallback for Futura Lt */
+            font-family: "Futura", "Trebuchet MS", "Century Gothic", sans-serif;
+            text-rendering: optimizeLegibility;
         }
-        .imprint-header {
-            font-size: 3rem;
-            font-weight: normal;
-            border-bottom: 1px solid #333;
-            padding-bottom: 20px;
-            margin-bottom: 40px;
+
+        /* The Authority Font: ABORETO */
+        .brand-header {
+            margin-top: 80px;
+            font-family: 'Aboreto', cursive;
+            font-size: 3.5rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
         }
-        .nav-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+
+        .main-container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 100px;
+            gap: 100px;
+        }
+
+        /* The Narrative: Garamond Premier Pro */
+        .statement-column {
+            flex: 1;
+            font-family: "Garamond", "Adobe Garamond Pro", "Georgia", serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+            color: #ccc;
+        }
+
+        /* The Artifacts & Archives: Futura Lt */
+        .navigation-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
             gap: 40px;
-            max-width: 600px;
-        }
-        .nav-item {
-            text-decoration: none;
-            color: #888;
-            font-size: 0.9rem;
-            transition: color 0.5s ease;
             text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 300;
         }
-        .nav-item:hover { color: #fff; }
-        .artifact-meta {
-            margin-top: 60px;
-            font-size: 0.7rem;
-            color: #444;
-            font-style: italic;
+
+        .nav-link {
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.85rem;
+            border-left: 1px solid #444;
+            padding-left: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .nav-link:hover {
+            border-left: 1px solid #fff;
+            color: #888;
+        }
+
+        /* Asset Placement Logic */
+        .logo-container {
+            margin-bottom: 40px;
+        }
+        
+        .score-preview {
+            width: 100%;
+            max-width: 400px;
+            filter: invert(1); /* Ensures black scores appear white on black background */
+            opacity: 0.7;
+            margin-top: 40px;
+        }
+
+        .meta-footer {
+            margin-top: auto;
+            padding-bottom: 40px;
+            font-size: 0.65rem;
+            color: #333;
+            letter-spacing: 0.3em;
         }
     </style>
 </head>
 <body>
-    <div class="imprint-header">SIGILLUM</div>
-    
-    <div class="nav-grid">
-        <a href="#acta" class="nav-item">ACTA (The Archives)</a>
-        <a href="#opus" class="nav-item">OPUS (The Artifacts)</a>
+
+    <div class="brand-header">SIGILLUM</div>
+
+    <div class="main-container">
+        <div class="statement-column">
+            SIGILLUM is a single-name artistic imprint publishing musical compositions and poetry as artifacts and archiving the artist and his acts—work that is difficult by consequence, agonistic against time, in which there’s authority, and is catalogued scholarly, whose only measure is ripeness and the wonder wounding quality.
+        </div>
+
+        <div class="navigation-column">
+            <div class="logo-container">
+                <img src="logo.png" alt="SIGILLUM SEAL" style="height: 60px;">
+            </div>
+
+            <a href="archives.html" class="nav-link">ACTA: THE ARCHIVES (Tapes & Manuscripts)</a>
+            <a href="artifacts.html" class="nav-link">OPUS: THE ARTIFACTS (Compositions & Poetry)</a>
+
+            <img src="score_fragment.png" alt="Opus Fragment" class="score-preview">
+        </div>
     </div>
 
-    <div class="artifact-meta">
-        "Difficult by consequence, agonistic against time."
+    <div class="meta-footer">
+        TOKYO | RIYADH | LONDON — MMXVI
     </div>
+
 </body>
 </html>
