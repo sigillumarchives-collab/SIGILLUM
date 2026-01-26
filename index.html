@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,22 +11,27 @@
             font-family: 'Aboreto-Custom';
             src: url('assets/Aboreto-Regular.woff') format('woff');
         }
+
         @font-face {
             font-family: 'FuturaLT-Custom';
             src: url('assets/FuturaLT.woff') format('woff');
         }
+
         @font-face {
             font-family: 'Garamond-Custom';
             src: url('assets/GaramondPremrPro.woff') format('woff');
         }
 
         /* 2. CORE GEOMETRY */
-        body, html {
+        body,
+        html {
             background-color: #ffffff;
             color: #000000;
             margin: 0;
             padding: 0;
             width: 100%;
+            height: 100vh;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -37,106 +43,241 @@
         .site-header {
             width: 94%;
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr; /* Central focus on Title */
-            padding: 100px 0 80px 0;
+            grid-template-columns: 1fr 2fr 1fr;
+            /* Central focus on Title */
+            padding: 28px 0;
             align-items: center;
         }
 
-        .header-left { text-align: left; }
-        .logo-img { 
-            height: 48px; /* Fixed height for proportion */
+        .header-left {
+            text-align: left;
+        }
+
+        .logo-img {
+            height: 48px;
+            /* Fixed height for proportion */
             width: auto;
         }
 
         .header-center {
             font-family: 'Aboreto-Custom', serif;
-            font-size: 3.8rem;
-            letter-spacing: 0.7em;
+            font-size: 32px;
+            letter-spacing: normal;
             text-align: center;
             text-transform: uppercase;
-            padding-left: 0.7em; /* Balance for the last letter spacing */
         }
 
         .header-right {
             display: flex;
             justify-content: flex-end;
-            gap: 45px;
+            gap: 68px;
             font-family: 'FuturaLT-Custom', sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 0.5em;
+            font-size: 16px;
+            letter-spacing: normal;
             text-transform: uppercase;
         }
 
-        /* 4. THE MAIN CANVAS GRID */
-        .main-canvas {
+        /* 4. THE MAIN CANVAS GRID - REPLACED BY SPLIT LAYOUT */
+        .layout-wrapper {
+            display: flex;
+            width: 100%;
+            width: 100%;
+            flex: 1;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .left-panel {
+            flex: 1;
+            /* Takes up 50% */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* Center content horizontally */
+            box-sizing: border-box;
+            /* background-color: red; */
+
+            font-family: 'FuturaLT-Custom', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .left-panel-wrapper {
             display: grid;
-            grid-template-columns: 280px 1fr; /* Fixed width for Marginalia */
-            width: 94%;
-            max-width: 1600px;
-            gap: 150px; /* Precise distance from body */
-            margin-top: 20px;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 90%;
+            height: 50%;
+            gap: 20px;
         }
 
-        /* Marginalia: The Archive Column */
-        .marginalia-column {
-            font-family: 'FuturaLT-Custom', sans-serif;
-            font-size: 0.62rem;
-            line-height: 2.4; /* Expanded for scholarly air */
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
+        .left-panel-wrapper>div:nth-child(1) {
+            align-self: start;
+            justify-self: end;
+            text-align: left;
         }
 
-        .archival-entry { 
-            margin-bottom: 110px; /* Precise vertical rhythm */
+        .left-panel-wrapper>div:nth-child(2) {
+            align-self: center;
+            text-align: left;
+        }
+
+        .left-panel-wrapper>div:nth-child(3) {
+            align-self: end;
+            justify-self: end;
+            text-align: right;
+        }
+
+        .right-panel {
+            flex: 1;
+            /* Takes up 50% */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .archival-entry {
+            font-size: 12px;
+        }
+
+        .archival-entry-2 {
+            font-size: 10px
+        }
+
+        .entry-text {
+            padding-left: 52px;
+        }
+
+        .entry-text-2 {
+            text-align: right;
         }
 
         .score-fragment {
-            width: 100%;
-            margin-top: 40px;
-            display: block;
+            width: 291px;
+            max-width: 100%;
+            height: auto;
         }
 
         /* The Statement: The Centered Sacred Word */
         .manifesto-body {
-            font-family: 'Garamond-Custom', serif;
-            font-size: 1.45rem; /* Increased for authority */
-            line-height: 2.25; /* Exact scholarly spacing */
+            font-family: 'Garamond-PremerPro', serif;
+            font-size: 15px;
+            /* 34px */
+            line-height: normal;
             text-align: justify;
-            white-space: pre-line;
-            padding-right: 80px; /* Right-hand buffer */
+            /* Right-hand buffer */
             color: #000;
+            max-width: 72%;
+            margin: auto 0;
+            padding: 40px 0;
         }
 
-        /* 5. MULTI-SCREEN LOGIC */
-        @media (max-width: 1200px) {
-            .header-center { font-size: 2.8rem; }
-            .main-canvas { gap: 80px; }
+        .manifesto-body p {
+            margin-bottom: 1.5em;
         }
 
-        @media (max-width: 800px) {
-            .site-header { 
-                grid-template-columns: 1fr; 
-                text-align: center; 
-                gap: 40px; 
+        /* 5. RESPONSIVE LOGIC */
+        @media (max-width: 1024px) {
+
+            body,
+            html {
+                height: auto;
+                overflow-y: auto;
             }
-            .header-right { justify-content: center; }
-            .header-left { text-align: center; }
-            .main-canvas { grid-template-columns: 1fr; gap: 60px; }
-            .manifesto-body { padding-right: 0; }
+
+            .site-header {
+                padding: 20px 0;
+            }
+
+            .layout-wrapper {
+                flex-direction: column;
+                height: auto;
+                overflow: visible;
+            }
+
+            .left-panel,
+            .right-panel {
+                width: 100%;
+                height: auto;
+                padding: 40px 0;
+            }
+
+            /* Reset Left Panel Grid for vertical stacking */
+            .left-panel-wrapper {
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                height: auto;
+                gap: 60px;
+            }
+
+            .left-panel-wrapper>div:nth-child(1),
+            .left-panel-wrapper>div:nth-child(2),
+            .left-panel-wrapper>div:nth-child(3) {
+                align-self: center;
+                justify-self: center;
+                text-align: center;
+            }
+
+            /* Reset specific text alignments and paddings for mobile */
+            .entry-text,
+            .entry-text-2 {
+                padding: 12px 0 0 0;
+                text-align: center;
+            }
+
+            .manifesto-body {
+                max-width: 90%;
+                padding: 0;
+            }
         }
+
+        @media (max-width: 768px) {
+            .site-header {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .header-left {
+                text-align: center;
+            }
+
+            .header-center {
+                font-size: 24px;
+            }
+
+            .header-right {
+                justify-content: center;
+                gap: 20px;
+                font-size: 14px;
+            }
+
+            .manifesto-body {
+                font-size: 16px;
+            }
+        }
+
+
 
         /* 6. THE FOOTER */
         .site-footer {
-            padding: 150px 0 100px 0;
             font-family: 'FuturaLT-Custom', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 0.8em;
+            font-size: 16px;
+            letter-spacing: normal;
             text-transform: uppercase;
             text-align: center;
+            margin-bottom: 18px;
         }
-        .contact-link { text-decoration: none; color: #000; }
+
+        .contact-link {
+            text-decoration: none;
+            color: #000;
+        }
     </style>
 </head>
+
 <body>
 
     <header class="site-header">
@@ -151,45 +292,109 @@
         </div>
     </header>
 
-    <div class="main-canvas">
-        <aside class="marginalia-column">
-            <div class="archival-entry">
-                1. H. / SIGILLUM / <br>
-                STATEMENT ITS EXISTENCE, PRINCIPLES <br>
-                AND AIMS TO THE READER <br>
-                JAN, 19th 2026
+    <div class="layout-wrapper">
+
+        <div class="left-panel">
+            <div class="left-panel-wrapper">
+                <div class="archival-entry">
+                    1. H. / SIGILLUM / <br>
+                    STATEMENT ITS EXISTENCE, PRINCIPLES <br>
+                    AND AIMS TO THE READER <br>
+                    JAN, 19th 2026
+                </div>
+                <div class="archival-entry-2">
+                    <img src="assets/Piano.png" class="score-fragment">
+                    <div class="entry-text">
+                        2. Preludeum, Bar 002 <br>
+                        Sanctus, Missa Salemnis, Op. 123 <br>
+                        Beethoven, Ludwig van <br>
+                        Piano reduction by yvaska
+                    </div>
+                </div>
+                <div class="archival-entry-2">
+                    <img src="assets/Piano.png" class="score-fragment">
+                    <div class="entry-text-2">
+                        3. Sanctus, Bar 002 <br>
+                        Mass in b minor, Op. 232 <br>
+                        Bach, Sebastian Johann <br>
+                        Piano reduction by yvaska
+                    </div>
+                </div>
             </div>
-            <div class="archival-entry">
-                2. Preludeum, Bar 002 <br>
-                Sanctus, Missa Salemnis, Op. 123 <br>
-                Beethoven, Ludwig van <br>
-                Piano reduction by yvaska
-                <img src="assets/Piano.png" class="score-fragment">
-            </div>
-            <div class="archival-entry">
-                3. Sanctus, Bar 002 <br>
-                Mass in b minor, Op. 232 <br>
-                Bach, Sebastian Johann <br>
-                Piano reduction by yvaska
-                <img src="assets/Piano.png" class="score-fragment">
-            </div>
-        </aside>
+        </div>
 
-        <main class="manifesto-body">
-            SIGILLUM is a single-name artistic imprint publishing musical compositions and poetry (with selected inheritances of the past) as artifacts and archiving the artist and his acts—work that is difficult by consequence, agonistic against time, in which there’s authority, and is catalogued scholarly, whose only measure is ripeness and the wonder wounding quality.
+        <div class="right-panel">
+            <main class="manifesto-body">
+                <p>SIGILLUM is a single-name artistic imprint publishing musical compositions and poetry (with selected
+                    inheritances of the past) as artifacts and archiving the artist and his acts—work that is difficult
+                    by
+                    consequence, agonistic against time, in which there’s authority, and is catalogued scholarly, whose
+                    only
+                    measure is ripeness and the wonder wounding quality.</p>
 
-            We came to be after countless meetings and invaluable time spent with Yvaska (composer, poet) in Tokyo. Our position we find is as the flaming cherub guarding against a great rock in this extremely weary land. In times when commodity is branded as art, propaganda taken for poetry, and an artist of limited to no means necessarily forced to take part as a cog in the capitalist machinery of vanity and corruption—we endeavor to be the gentle robes that may to some extent sustain the artist in this windy desolation.
+                <p>We came to be after countless meetings and invaluable time spent with Yvaska (composer, poet) in
+                    Tokyo.
+                    Our position we find is as the flaming cherub guarding against a great rock in this extremely weary
+                    land. In times when commodity is branded as art, propaganda taken for poetry, and an artist of
+                    limited
+                    to no means necessarily forced to take part as a cog in the capitalist machinery of vanity and
+                    corruption—we endeavor to be the gentle robes that may to some extent sustain the artist in this
+                    windy
+                    desolation.</p>
 
-            Dear reader, we wish to be transparent but this opacity in our nature haunts us. We owe you the word, which in our case is not the first, we accept our belatedness, and though it be too frail to sustain the flesh, bound by ordinance we still oblige you, dear reader, to concede and grant us your company for a brief while.
+                <p>Dear reader, we wish to be transparent but this opacity in our nature haunts us. We owe you the word,
+                    which in our case is not the first, we accept our belatedness, and though it be too frail to sustain
+                    the
+                    flesh, bound by ordinance we still oblige you, dear reader, to concede and grant us your company for
+                    a
+                    brief while.</p>
 
-            Though naming it avails not, what we call Art is divine by nature and the poet a religion of one. The true experience of a piece of art accordingly is a walk with god, a face to face, a wonder wounding, a breaking of the vessels. It does not redeem the fall, it leaves us bereft, the walk ends and we are alone. And we can say that we do it much harm to survive the walk it being so majestic. It promises us nothing, it is beyond morality, it is out of times bounds, it too will be when it will be. And it too is full of jealousy robbing us of simpler pleasures and filling us with general discontent. It is not for the masses, it is a lonesome face to face that is availed only to the solitary one. 
+                <p>Though naming it avails not, what we call Art is divine by nature and the poet a religion of one. The
+                    true experience of a piece of art accordingly is a walk with god, a face to face, a wonder wounding,
+                    a
+                    breaking of the vessels. It does not redeem the fall, it leaves us bereft, the walk ends and we are
+                    alone. And we can say that we do it much harm to survive the walk it being so majestic. It promises
+                    us
+                    nothing, it is beyond morality, it is out of times bounds, it too will be when it will be. And it
+                    too is
+                    full of jealousy robbing us of simpler pleasures and filling us with general discontent. It is not
+                    for
+                    the masses, it is a lonesome face to face that is availed only to the solitary one.</p>
 
-            Why then must you, dear reader, put up with all the hideousness that this face to face instills in one. I cannot answer it, dear reader, I only knew myself long after I’d already fallen. Time avails not, place avails not. The artist our only prophet and we concede ourselves to his art out of helplessness as the face to face is too direct, immediate and sublime to be consoled with reason and be denied. Then, dear reader, I could only entice you believing you are already wonder wounded and to be of this company of the fallen.
+                <p>Why then must you, dear reader, put up with all the hideousness that this face to face instills in
+                    one.
+                    I cannot answer it, dear reader, I only knew myself long after I’d already fallen. Time avails not,
+                    place avails not. The artist our only prophet and we concede ourselves to his art out of
+                    helplessness as
+                    the face to face is too direct, immediate and sublime to be consoled with reason and be denied.
+                    Then,
+                    dear reader, I could only entice you believing you are already wonder wounded and to be of this
+                    company
+                    of the fallen.</p>
 
-            I still owe you, dear reader, why SIGILLUM? Take it as defiance against augury. There is nothing we can do for Shakespeare or Sebastian Bach, they encompass us and we occupy a place vaguely small in their huge world. If we be the company of the fallen, let us be three good friends and celebrate the fall, relish the exile and anticipate the upcoming walk. Let us be as pilgrims who led by the holy spirit that descends in Beethoven’s Benedictus to the gates of heaven and let the gates open for us as in Bach’s Sanctus. So in act let SIGILLUM be the pilgrimage besides one who is bearing the cross and we be solemn when solemnity is demanded and make merry when tis’ proper.
+                <p>I still owe you, dear reader, why SIGILLUM? Take it as defiance against augury. There is nothing we
+                    can
+                    do for Shakespeare or Sebastian Bach, they encompass us and we occupy a place vaguely small in their
+                    huge world. If we be the company of the fallen, let us be three good friends and celebrate the fall,
+                    relish the exile and anticipate the upcoming walk. Let us be as pilgrims who led by the holy spirit
+                    that
+                    descends in Beethoven’s Benedictus to the gates of heaven and let the gates open for us as in Bach’s
+                    Sanctus. So in act let SIGILLUM be the pilgrimage besides one who is bearing the cross and we be
+                    solemn
+                    when solemnity is demanded and make merry when tis’ proper.</p>
 
-            I would not be so harmful to speak about Yvaska, I can only say that I believe him of potential to be the artist of our age and all ages. One must support such who brings god down to us through his art and in need of much support we are. I would ask of you, dear reader, to know him through his art and his own words then through mine which are already in his shadow. Now, since I cannot stay though hopelessly it is to be wished, I must say my farewell. It was a pleasing thing to know you dear reader, I hope you’ll find us good.
-        </main>
+                <p>I would not be so harmful to speak about Yvaska, I can only say that I believe him of potential to be
+                    the artist of our age and all ages. One must support such who brings god down to us through his art
+                    and
+                    in need of much support we are. I would ask of you, dear reader, to know him through his art and his
+                    own
+                    words then through mine which are already in his shadow. Now, since I cannot stay though hopelessly
+                    it
+                    is to be wished, I must say my farewell. It was a pleasing thing to know you dear reader, I hope
+                    you’ll
+                    find us good.</p>
+            </main>
+        </div>
     </div>
 
     <footer class="site-footer">
@@ -197,4 +402,5 @@
     </footer>
 
 </body>
+
 </html>
