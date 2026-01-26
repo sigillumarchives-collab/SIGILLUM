@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGILLUM | Artistic Imprint</title>
+    <title>SIGILLUM</title>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Futura-Light';
+            src: local('Futura Light'), local('Futura-Light'), local('Futura LT');
+        }
+        
         body, html {
             background-color: #000000;
             color: #ffffff;
@@ -14,143 +19,139 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* HEADER: Three distinct zones */
-        .site-header {
-            width: 90%;
-            display: flex;
-            justify-content: space-between;
+        /* 1. THE HEADER: FIXED PROPORTIONS */
+        .header-container {
+            width: 95%;
+            max-width: 1600px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr; /* Exact spacing */
+            padding: 60px 0;
             align-items: center;
-            padding: 50px 0;
-            border-bottom: 0.5px solid rgba(255, 255, 255, 0.15);
         }
 
         .header-left {
-            flex: 1;
-            font-family: "Futura-Light", "Futura", sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.35em;
+            font-family: 'Futura-Light', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.4em;
             text-transform: uppercase;
+            display: flex;
+            gap: 40px;
         }
-        .header-left span { margin-right: 30px; cursor: pointer; }
 
         .header-center {
-            flex: 1;
-            text-align: center;
             font-family: 'Aboreto', cursive;
             font-size: 2.8rem;
-            letter-spacing: 0.55em;
+            letter-spacing: 0.7em;
+            text-align: center;
             text-transform: uppercase;
         }
 
         .header-right {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
+            text-align: right;
         }
-        .brand-seal { height: 55px; }
+        
+        .logo-img { height: 50px; }
 
-        /* MAIN BODY GRID: Archival data on left, Manifesto center */
-        .main-layout {
-            display: grid;
-            grid-template-columns: 250px 1fr;
+        /* 2. THE MAIN CANVAS: MARGINALIA & BODY */
+        .main-content {
             width: 90%;
             max-width: 1400px;
-            margin-top: 80px;
-            gap: 100px;
+            display: grid;
+            grid-template-columns: 320px 1fr; /* Marginalia width vs Body */
+            gap: 120px;
+            margin-top: 40px;
+            margin-bottom: 100px;
         }
 
-        /* Side Texts: Futura Lt */
-        .archival-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 60px;
-            font-family: "Futura-Light", "Futura", sans-serif;
-            font-size: 0.65rem;
-            line-height: 1.8;
-            letter-spacing: 0.2em;
+        /* The Left Column: Marginalia & Scores */
+        .marginalia {
+            font-family: 'Futura-Light', sans-serif;
+            font-size: 0.62rem;
+            line-height: 2.2;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: #777;
+            color: rgba(255, 255, 255, 0.6);
         }
 
-        /* The Scholarly Manifesto: Garamond Premier Pro */
-        .manifesto-block {
-            max-width: 850px;
+        .marginalia-entry { margin-bottom: 70px; }
+
+        .score-image {
+            width: 100%;
+            margin-top: 30px;
+            filter: invert(1);
+            opacity: 0.9;
+        }
+
+        /* The Center Block: Justified Manifesto */
+        .manifesto-body {
             font-family: "Garamond Premier Pro", "Garamond", serif;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             line-height: 1.95;
             text-align: justify;
-            color: rgba(255, 255, 255, 0.9);
+            color: #fff;
             white-space: pre-line;
+            padding-right: 50px;
         }
 
-        /* Artifact Images (Music Scores) */
-        .score-artifact {
-            width: 100%;
-            margin-top: 60px;
-            filter: invert(1); /* Ensures scores appear white on black */
-            opacity: 0.8;
-        }
-
-        /* Footer: CONTACT */
+        /* 3. THE FOOTER: CONTACT */
         .site-footer {
-            margin-top: auto;
-            padding: 60px 0 40px 0;
-            font-family: "Futura", sans-serif;
+            width: 100%;
+            text-align: center;
+            padding: 80px 0;
+            font-family: 'Futura-Light', sans-serif;
             font-size: 0.75rem;
-            letter-spacing: 0.4em;
-            color: #ffffff;
+            letter-spacing: 0.6em;
             text-transform: uppercase;
-            cursor: pointer;
         }
+        
+        .contact-link { text-decoration: none; color: #fff; }
+
     </style>
 </head>
 <body>
 
-    <header class="site-header">
+    <div class="header-container">
         <div class="header-left">
             <span>YVASKA</span>
             <span>ARTIFACTS</span>
             <span>ARCHIVES</span>
         </div>
-        
         <div class="header-center">SIGILLUM</div>
-        
         <div class="header-right">
-            <img src="logo.png" alt="" class="brand-seal">
+            <img src="logo.png" class="logo-img">
         </div>
-    </header>
+    </div>
 
-    <div class="main-layout">
-        <aside class="archival-sidebar">
-            <div class="side-entry">
-                H. / SIGILLUM / <br>
-                STATEMENT ITS EXISTENCE, PRINCIPLES AND AIMS TO THE READER <br>
+    <div class="main-content">
+        <aside class="marginalia">
+            <div class="marginalia-entry">
+                1. H. / SIGILLUM / <br>
+                STATEMENT ITS EXISTENCE, PRINCIPLES <br>
+                AND AIMS TO THE READER <br>
                 JAN, 19th 2026
             </div>
-            
-            <div class="side-entry">
-                Preludeum, Bar 002 <br>
+
+            <div class="marginalia-entry">
+                2. Preludeum, Bar 002 <br>
                 Sanctus, Missa Salemnis, Op. 123 <br>
                 Beethoven, Ludwig van <br>
                 Piano reduction by yvaska
+                <img src="score1.png" class="score-image">
             </div>
 
-            <div class="side-entry">
-                Sanctus, Bar 002 <br>
+            <div class="marginalia-entry">
+                3. Sanctus, Bar 002 <br>
                 Mass in b minor, Op. 232 <br>
                 Bach, Sebastian Johann <br>
                 Piano reduction by yvaska
+                <img src="score2.png" class="score-image">
             </div>
-
-            <img src="score1.png" alt="" class="score-artifact">
-            <img src="score2.png" alt="" class="score-artifact">
         </aside>
 
-        <main class="manifesto-block">
+        <main class="manifesto-body">
             SIGILLUM is a single-name artistic imprint publishing musical compositions and poetry (with selected inheritances of the past) as artifacts and archiving the artist and his acts—work that is difficult by consequence, agonistic against time, in which there’s authority, and is catalogued scholarly, whose only measure is ripeness and the wonder wounding quality.
 
             We came to be after countless meetings and invaluable time spent with Yvaska (composer, poet) in Tokyo. Our position we find is as the flaming cherub guarding against a great rock in this extremely weary land. In times when commodity is branded as art, propaganda taken for poetry, and an artist of limited to no means necessarily forced to take part as a cog in the capitalist machinery of vanity and corruption—we endeavor to be the gentle robes that may to some extent sustain the artist in this windy desolation.
@@ -168,7 +169,7 @@
     </div>
 
     <footer class="site-footer">
-        CONTACT
+        <a href="mailto:contact@sigillum.art" class="contact-link">CONTACT</a>
     </footer>
 
 </body>
