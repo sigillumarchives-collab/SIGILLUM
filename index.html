@@ -3,121 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGILLUM | Artistic Imprint</title>
+    <title>SIGILLUM</title>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     <style>
-        /* General Site Logic (Futura Lt equivalent) */
-        body {
-            background-color: #000;
-            color: #fff;
+        /* Exact Black Background from the TIFF */
+        body, html {
+            background-color: #000000;
+            color: #ffffff;
             margin: 0;
             padding: 0;
+            height: 100%;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            /* Using Century Gothic as a high-fidelity fallback for Futura Lt */
-            font-family: "Futura", "Trebuchet MS", "Century Gothic", sans-serif;
-            text-rendering: optimizeLegibility;
+            justify-content: center;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* The Authority Font: ABORETO */
-        .brand-header {
-            margin-top: 80px;
-            font-family: 'Aboreto', cursive;
-            font-size: 3.5rem;
-            letter-spacing: 0.2em;
+        .main-canvas {
+            width: 85vw;
+            height: 80vh;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr; /* Asymmetric split */
+            grid-template-rows: auto 1fr auto;
+            gap: 0;
+        }
+
+        /* Top Header: ABORETO */
+        .header-section {
+            grid-column: 1 / span 2;
+            font-family: 'Aboreto', sans-serif;
+            font-size: 4.8rem;
+            letter-spacing: 0.5em;
+            text-align: center;
+            padding-bottom: 80px;
             text-transform: uppercase;
         }
 
-        .main-container {
-            display: flex;
-            width: 90%;
-            max-width: 1200px;
-            margin-top: 100px;
-            gap: 100px;
-        }
-
-        /* The Narrative: Garamond Premier Pro */
-        .statement-column {
-            flex: 1;
-            font-family: "Garamond", "Adobe Garamond Pro", "Georgia", serif;
-            font-size: 1.1rem;
-            line-height: 1.8;
+        /* Left Side: Garamond Premier Pro */
+        .statement-text {
+            font-family: "Garamond Premier Pro", "Adobe Garamond Pro", "Garamond", serif;
+            font-size: 1.15rem;
+            line-height: 1.85;
             text-align: justify;
-            color: #ccc;
+            padding-right: 12%;
+            align-self: start;
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        /* The Artifacts & Archives: Futura Lt */
-        .navigation-column {
-            flex: 1;
+        /* Right Side: Futura Lt */
+        .nav-and-artifacts {
+            border-left: 0.5px solid rgba(255, 255, 255, 0.2);
+            padding-left: 60px;
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .logo-seal {
+            width: 110px;
+            margin-bottom: 50px;
+        }
+
+        .navigation {
+            font-family: "Futura-Light", "Futura Lt BT", "Futura", sans-serif;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-weight: 300;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #fff;
-            font-size: 0.85rem;
-            border-left: 1px solid #444;
-            padding-left: 20px;
-            transition: all 0.4s ease;
-        }
-
-        .nav-link:hover {
-            border-left: 1px solid #fff;
-            color: #888;
-        }
-
-        /* Asset Placement Logic */
-        .logo-container {
-            margin-bottom: 40px;
-        }
-        
-        .score-preview {
-            width: 100%;
-            max-width: 400px;
-            filter: invert(1); /* Ensures black scores appear white on black background */
-            opacity: 0.7;
-            margin-top: 40px;
-        }
-
-        .meta-footer {
-            margin-top: auto;
-            padding-bottom: 40px;
-            font-size: 0.65rem;
-            color: #333;
             letter-spacing: 0.3em;
+            font-size: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
         }
+
+        .nav-item {
+            text-decoration: none;
+            color: #ffffff;
+            transition: opacity 0.4s ease;
+        }
+
+        .nav-item:hover {
+            opacity: 0.4;
+        }
+
+        /* The Musical Fragment Artifact */
+        .score-image {
+            margin-top: 60px;
+            width: 100%;
+            opacity: 0.85;
+            filter: invert(1); /* Matches white-on-black aesthetic */
+        }
+
+        /* Bottom Footer */
+        .footer {
+            grid-column: 1 / span 2;
+            text-align: center;
+            font-family: "Futura", sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.4em;
+            color: #444;
+            padding-top: 60px;
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="brand-header">SIGILLUM</div>
+    <div class="main-canvas">
+        <div class="header-section">SIGILLUM</div>
 
-    <div class="main-container">
-        <div class="statement-column">
-            SIGILLUM is a single-name artistic imprint publishing musical compositions and poetry as artifacts and archiving the artist and his acts—work that is difficult by consequence, agonistic against time, in which there’s authority, and is catalogued scholarly, whose only measure is ripeness and the wonder wounding quality.
+        <div class="statement-text">
+            SIGILLUM is a single-name artistic imprint publishing musical compositions and poetry (with selected inheritances of the past) as artifacts and archiving the artist and his acts—work that is difficult by consequence, agonistic against time, in which there’s authority, and is catalogued scholarly, whose only measure is ripeness and the wonder wounding quality.
         </div>
 
-        <div class="navigation-column">
-            <div class="logo-container">
-                <img src="logo.png" alt="SIGILLUM SEAL" style="height: 60px;">
-            </div>
+        <div class="nav-and-artifacts">
+            <img src="logo.png" alt="" class="logo-seal">
+            
+            <nav class="navigation">
+                <a href="#" class="nav-item">ACTA: THE ARCHIVES</a>
+                <a href="#" class="nav-item">OPUS: THE ARTIFACTS</a>
+            </nav>
 
-            <a href="archives.html" class="nav-link">ACTA: THE ARCHIVES (Tapes & Manuscripts)</a>
-            <a href="artifacts.html" class="nav-link">OPUS: THE ARTIFACTS (Compositions & Poetry)</a>
-
-            <img src="score_fragment.png" alt="Opus Fragment" class="score-preview">
+            <img src="score_fragment.png" alt="" class="score-image">
         </div>
-    </div>
 
-    <div class="meta-footer">
-        TOKYO | RIYADH | LONDON — MMXVI
+        <div class="footer">
+            TOKYO — RIYADH — LONDON | MMXVI — MMXXVI
+        </div>
     </div>
 
 </body>
