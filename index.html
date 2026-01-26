@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SIGILLUM | Artistic Imprint</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: "Times New Roman", serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            letter-spacing: 0.15em;
+        }
+        .imprint-header {
+            font-size: 3rem;
+            font-weight: normal;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        .nav-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 600px;
+        }
+        .nav-item {
+            text-decoration: none;
+            color: #888;
+            font-size: 0.9rem;
+            transition: color 0.5s ease;
+            text-transform: uppercase;
+        }
+        .nav-item:hover { color: #fff; }
+        .artifact-meta {
+            margin-top: 60px;
+            font-size: 0.7rem;
+            color: #444;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="imprint-header">SIGILLUM</div>
+    
+    <div class="nav-grid">
+        <a href="#acta" class="nav-item">ACTA (The Archives)</a>
+        <a href="#opus" class="nav-item">OPUS (The Artifacts)</a>
+    </div>
+
+    <div class="artifact-meta">
+        "Difficult by consequence, agonistic against time."
+    </div>
+</body>
+</html>
