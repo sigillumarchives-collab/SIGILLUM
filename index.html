@@ -3,132 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGILLUM</title>
+    <title>SIGILLUM | Artistic Imprint</title>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     <style>
-        /* Exact Black Background from the TIFF */
         body, html {
             background-color: #000000;
             color: #ffffff;
             margin: 0;
             padding: 0;
-            height: 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            min-height: 100vh;
             -webkit-font-smoothing: antialiased;
         }
 
-        .main-canvas {
-            width: 85vw;
-            height: 80vh;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr; /* Asymmetric split */
-            grid-template-rows: auto 1fr auto;
-            gap: 0;
-        }
-
-        /* Top Header: ABORETO */
-        .header-section {
-            grid-column: 1 / span 2;
-            font-family: 'Aboreto', sans-serif;
-            font-size: 4.8rem;
-            letter-spacing: 0.5em;
-            text-align: center;
-            padding-bottom: 80px;
-            text-transform: uppercase;
-        }
-
-        /* Left Side: Garamond Premier Pro */
-        .statement-text {
-            font-family: "Garamond Premier Pro", "Adobe Garamond Pro", "Garamond", serif;
-            font-size: 1.15rem;
-            line-height: 1.85;
-            text-align: justify;
-            padding-right: 12%;
-            align-self: start;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* Right Side: Futura Lt */
-        .nav-and-artifacts {
-            border-left: 0.5px solid rgba(255, 255, 255, 0.2);
-            padding-left: 60px;
+        /* HEADER: Three distinct zones */
+        .site-header {
+            width: 90%;
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
+            align-items: center;
+            padding: 50px 0;
+            border-bottom: 0.5px solid rgba(255, 255, 255, 0.15);
         }
 
-        .logo-seal {
-            width: 110px;
-            margin-bottom: 50px;
-        }
-
-        .navigation {
-            font-family: "Futura-Light", "Futura Lt BT", "Futura", sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
+        .header-left {
+            flex: 1;
+            font-family: "Futura-Light", "Futura", sans-serif;
             font-size: 0.75rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+        }
+        .header-left span { margin-right: 30px; cursor: pointer; }
+
+        .header-center {
+            flex: 1;
+            text-align: center;
+            font-family: 'Aboreto', cursive;
+            font-size: 2.8rem;
+            letter-spacing: 0.55em;
+            text-transform: uppercase;
+        }
+
+        .header-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .brand-seal { height: 55px; }
+
+        /* MAIN BODY GRID: Archival data on left, Manifesto center */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            width: 90%;
+            max-width: 1400px;
+            margin-top: 80px;
+            gap: 100px;
+        }
+
+        /* Side Texts: Futura Lt */
+        .archival-sidebar {
             display: flex;
             flex-direction: column;
-            gap: 35px;
+            gap: 60px;
+            font-family: "Futura-Light", "Futura", sans-serif;
+            font-size: 0.65rem;
+            line-height: 1.8;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #777;
         }
 
-        .nav-item {
-            text-decoration: none;
-            color: #ffffff;
-            transition: opacity 0.4s ease;
+        /* The Scholarly Manifesto: Garamond Premier Pro */
+        .manifesto-block {
+            max-width: 850px;
+            font-family: "Garamond Premier Pro", "Garamond", serif;
+            font-size: 1.25rem;
+            line-height: 1.95;
+            text-align: justify;
+            color: rgba(255, 255, 255, 0.9);
+            white-space: pre-line;
         }
 
-        .nav-item:hover {
-            opacity: 0.4;
-        }
-
-        /* The Musical Fragment Artifact */
-        .score-image {
-            margin-top: 60px;
+        /* Artifact Images (Music Scores) */
+        .score-artifact {
             width: 100%;
-            opacity: 0.85;
-            filter: invert(1); /* Matches white-on-black aesthetic */
+            margin-top: 60px;
+            filter: invert(1); /* Ensures scores appear white on black */
+            opacity: 0.8;
         }
 
-        /* Bottom Footer */
-        .footer {
-            grid-column: 1 / span 2;
-            text-align: center;
+        /* Footer: CONTACT */
+        .site-footer {
+            margin-top: auto;
+            padding: 60px 0 40px 0;
             font-family: "Futura", sans-serif;
-            font-size: 0.6rem;
+            font-size: 0.75rem;
             letter-spacing: 0.4em;
-            color: #444;
-            padding-top: 60px;
+            color: #ffffff;
+            text-transform: uppercase;
+            cursor: pointer;
         }
-
     </style>
 </head>
 <body>
 
-    <div class="main-canvas">
-        <div class="header-section">SIGILLUM</div>
-
-        <div class="statement-text">
-            SIGILLUM is a single-name artistic imprint publishing musical compositions and poetry (with selected inheritances of the past) as artifacts and archiving the artist and his acts—work that is difficult by consequence, agonistic against time, in which there’s authority, and is catalogued scholarly, whose only measure is ripeness and the wonder wounding quality.
+    <header class="site-header">
+        <div class="header-left">
+            <span>YVASKA</span>
+            <span>ARTIFACTS</span>
+            <span>ARCHIVES</span>
         </div>
+        
+        <div class="header-center">SIGILLUM</div>
+        
+        <div class="header-right">
+            <img src="logo.png" alt="" class="brand-seal">
+        </div>
+    </header>
 
-        <div class="nav-and-artifacts">
-            <img src="logo.png" alt="" class="logo-seal">
+    <div class="main-layout">
+        <aside class="archival-sidebar">
+            <div class="side-entry">
+                H. / SIGILLUM / <br>
+                STATEMENT ITS EXISTENCE, PRINCIPLES AND AIMS TO THE READER <br>
+                JAN, 19th 2026
+            </div>
             
-            <nav class="navigation">
-                <a href="#" class="nav-item">ACTA: THE ARCHIVES</a>
-                <a href="#" class="nav-item">OPUS: THE ARTIFACTS</a>
-            </nav>
+            <div class="side-entry">
+                Preludeum, Bar 002 <br>
+                Sanctus, Missa Salemnis, Op. 123 <br>
+                Beethoven, Ludwig van <br>
+                Piano reduction by yvaska
+            </div>
 
-            <img src="score_fragment.png" alt="" class="score-image">
-        </div>
+            <div class="side-entry">
+                Sanctus, Bar 002 <br>
+                Mass in b minor, Op. 232 <br>
+                Bach, Sebastian Johann <br>
+                Piano reduction by yvaska
+            </div>
 
-        <div class="footer">
-            TOKYO — RIYADH — LONDON | MMXVI — MMXXVI
-        </div>
+            <img src="score1.png" alt="" class="score-artifact">
+            <img src="score2.png" alt="" class="score-artifact">
+        </aside>
+
+        <main class="manifesto-block">
+            SIGILLUM is a single-name artistic imprint publishing musical compositions and poetry (with selected inheritances of the past) as artifacts and archiving the artist and his acts—work that is difficult by consequence, agonistic against time, in which there’s authority, and is catalogued scholarly, whose only measure is ripeness and the wonder wounding quality.
+
+            We came to be after countless meetings and invaluable time spent with Yvaska (composer, poet) in Tokyo. Our position we find is as the flaming cherub guarding against a great rock in this extremely weary land. In times when commodity is branded as art, propaganda taken for poetry, and an artist of limited to no means necessarily forced to take part as a cog in the capitalist machinery of vanity and corruption—we endeavor to be the gentle robes that may to some extent sustain the artist in this windy desolation.
+
+            Dear reader, we wish to be transparent but this opacity in our nature haunts us. We owe you the word, which in our case is not the first, we accept our belatedness, and though it be too frail to sustain the flesh, bound by ordinance we still oblige you, dear reader, to concede and grant us your company for a brief while.
+
+            Though naming it avails not, what we call Art is divine by nature and the poet a religion of one. The true experience of a piece of art accordingly is a walk with god, a face to face, a wonder wounding, a breaking of the vessels. It does not redeem the fall, it leaves us bereft, the walk ends and we are alone. And we can say that we do it much harm to survive the walk it being so majestic. It promises us nothing, it is beyond morality, it is out of times bounds, it too will be when it will be. And it too is full of jealousy robbing us of simpler pleasures and filling us with general discontent. It is not for the masses, it is a lonesome face to face that is availed only to the solitary one. 
+
+            Why then must you, dear reader, put up with all the hideousness that this face to face instills in one. I cannot answer it, dear reader, I only knew myself long after I’d already fallen. Time avails not, place avails not. The artist our only prophet and we concede ourselves to his art out of helplessness as the face to face is too direct, immediate and sublime to be consoled with reason and be denied. Then, dear reader, I could only entice you believing you are already wonder wounded and to be of this company of the fallen.
+
+            I still owe you, dear reader, why SIGILLUM? Take it as defiance against augury. There is nothing we can do for Shakespeare or Sebastian Bach, they encompass us and we occupy a place vaguely small in their huge world. If we be the company of the fallen, let us be three good friends and celebrate the fall, relish the exile and anticipate the upcoming walk. Let us be as pilgrims who led by the holy spirit that descends in Beethoven’s Benedictus to the gates of heaven and let the gates open for us as in Bach’s Sanctus. So in act let SIGILLUM be the pilgrimage besides one who is bearing the cross and we be solemn when solemnity is demanded and make merry when tis’ proper.
+
+            I would not be so harmful to speak about Yvaska, I can only say that I believe him of potential to be the artist of our age and all ages. One must support such who brings god down to us through his art and in need of much support we are. I would ask of you, dear reader, to know him through his art and his own words then through mine which are already in his shadow. Now, since I cannot stay though hopelessly it is to be wished, I must say my farewell. It was a pleasing thing to know you dear reader, I hope you’ll find us good.
+        </main>
     </div>
+
+    <footer class="site-footer">
+        CONTACT
+    </footer>
 
 </body>
 </html>
