@@ -1,3 +1,9 @@
+To achieve a precise digital incarnation of your TIFF design, we must refine the spatial geometry. In a "True Copy," the relationship between white space and ink is as vital as the text itself.
+
+The code below establishes the exact header orientation (Logo Left, Navigation Right), removes the horizontal rule, and creates the specific column relationship for the Marginalia (the Futura Lt archival notes) and the Sacred Word (the Garamond manifesto).
+The Exact Replica Manifest (index.html)
+HTML
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,128 +23,138 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* HEADER SECTION */
-        .header-container {
-            width: 90%;
-            max-width: 1400px;
+        /* 1. THE HEADER: REVERSED & CLEAN */
+        .site-header {
+            width: 92%;
+            max-width: 1500px;
             display: grid;
             grid-template-columns: 1fr 1.5fr 1fr;
-            padding: 80px 0 40px 0;
+            padding: 85px 0 65px 0;
             align-items: center;
-            border-bottom: 0.5px solid #000;
+            /* No border/underline per design */
         }
 
         .header-left {
-            font-family: "Futura", sans-serif;
-            font-weight: 300;
-            font-size: 0.7rem;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            display: flex;
-            gap: 30px;
+            text-align: left;
+        }
+
+        .brand-logo { 
+            height: 52px; 
+            display: block;
         }
 
         .header-center {
             font-family: 'Aboreto', cursive;
-            font-size: 3rem;
-            letter-spacing: 0.6em;
+            font-size: 3.4rem;
+            letter-spacing: 0.65em;
             text-align: center;
             text-transform: uppercase;
         }
 
-        .header-right { text-align: right; }
-        .logo-img { height: 60px; }
-
-        /* CONTENT GRID */
-        .main-content {
-            width: 90%;
-            max-width: 1400px;
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 120px;
-            margin-top: 80px;
-            margin-bottom: 120px;
+        .header-right {
+            font-family: "Futura", "Futura-Light", sans-serif;
+            font-weight: 300;
+            font-size: 0.72rem;
+            letter-spacing: 0.42em;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: flex-end;
+            gap: 32px;
         }
 
-        /* MARGINALIA (LEFT) */
-        .marginalia {
+        /* 2. THE MAIN CANVAS */
+        .main-canvas {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            width: 92%;
+            max-width: 1500px;
+            gap: 130px;
+            margin-top: 50px;
+            margin-bottom: 140px;
+        }
+
+        /* Marginalia: The Archival Data on Left */
+        .marginalia-column {
             font-family: "Futura", sans-serif;
             font-weight: 300;
             font-size: 0.65rem;
-            line-height: 2.2;
-            letter-spacing: 0.15em;
+            line-height: 2.3;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
         }
 
-        .marginalia-entry { margin-bottom: 90px; }
+        .archival-entry { margin-bottom: 100px; }
 
-        .score-artifact {
+        .musical-fragment {
             width: 100%;
-            margin-top: 30px;
+            margin-top: 38px;
             display: block;
         }
 
-        /* MANIFESTO BODY */
+        /* The Manifesto: Justified scholarly block */
         .manifesto-body {
             font-family: "Garamond Premier Pro", "Garamond", serif;
-            font-size: 1.3rem;
-            line-height: 2;
+            font-size: 1.38rem;
+            line-height: 2.05;
             text-align: justify;
+            color: #000;
             white-space: pre-line;
-            padding-right: 40px;
+            padding-right: 30px;
         }
 
-        /* FOOTER */
+        /* 3. THE FOOTER */
         .site-footer {
             width: 100%;
             text-align: center;
-            padding: 100px 0 60px 0;
+            padding: 110px 0 70px 0;
             font-family: "Futura", sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 0.5em;
+            font-size: 0.88rem;
+            letter-spacing: 0.65em;
             text-transform: uppercase;
         }
-        
-        .contact-link { text-decoration: none; color: #000; }
+
+        .contact-anchor { text-decoration: none; color: #000; }
     </style>
 </head>
 <body>
 
-    <header class="header-container">
+    <header class="site-header">
         <div class="header-left">
+            <img src="assets/Logo_Black.png" class="brand-logo" alt="">
+        </div>
+        
+        <div class="header-center">SIGILLUM</div>
+        
+        <div class="header-right">
             <span>YVASKA</span>
             <span>ARTIFACTS</span>
             <span>ARCHIVES</span>
         </div>
-        <div class="header-center">SIGILLUM</div>
-        <div class="header-right">
-            <img src="assets/Logo_Black.png" class="logo-img">
-        </div>
     </header>
 
-    <div class="main-content">
-        <aside class="marginalia">
-            <div class="marginalia-entry">
+    <div class="main-canvas">
+        <aside class="marginalia-column">
+            <div class="archival-entry">
                 1. H. / SIGILLUM / <br>
                 STATEMENT ITS EXISTENCE, PRINCIPLES <br>
                 AND AIMS TO THE READER <br>
                 JAN, 19th 2026
             </div>
 
-            <div class="marginalia-entry">
+            <div class="archival-entry">
                 2. Preludeum, Bar 002 <br>
                 Sanctus, Missa Salemnis, Op. 123 <br>
                 Beethoven, Ludwig van <br>
                 Piano reduction by yvaska
-                <img src="assets/Piano.png" class="score-artifact">
+                <img src="assets/Piano.png" class="musical-fragment">
             </div>
 
-            <div class="marginalia-entry">
+            <div class="archival-entry">
                 3. Sanctus, Bar 002 <br>
                 Mass in b minor, Op. 232 <br>
                 Bach, Sebastian Johann <br>
                 Piano reduction by yvaska
-                <img src="assets/Piano.png" class="score-artifact">
+                <img src="assets/Piano.png" class="musical-fragment">
             </div>
         </aside>
 
@@ -160,7 +176,7 @@
     </div>
 
     <footer class="site-footer">
-        <a href="mailto:contact@sigillum.art" class="contact-link">CONTACT</a>
+        <a href="mailto:contact@sigillum.art" class="contact-anchor">CONTACT</a>
     </footer>
 
 </body>
