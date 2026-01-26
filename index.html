@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     <style>
         body, html {
-            background-color: #ffffff; /* Pure white background */
-            color: #000000; /* Pure black text */
+            background-color: #ffffff;
+            color: #000000;
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,7 +17,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 1. THE HEADER */
+        /* HEADER SECTION */
         .header-container {
             width: 90%;
             max-width: 1400px;
@@ -25,11 +25,11 @@
             grid-template-columns: 1fr 1.5fr 1fr;
             padding: 80px 0 40px 0;
             align-items: center;
-            border-bottom: 0.5px solid #000; /* Sharp black line */
+            border-bottom: 0.5px solid #000;
         }
 
         .header-left {
-            font-family: "Futura", "Trebuchet MS", sans-serif;
+            font-family: "Futura", sans-serif;
             font-weight: 300;
             font-size: 0.7rem;
             letter-spacing: 0.4em;
@@ -46,24 +46,21 @@
             text-transform: uppercase;
         }
 
-        .header-right {
-            text-align: right;
-        }
-        
+        .header-right { text-align: right; }
         .logo-img { height: 60px; }
 
-        /* 2. THE MAIN BODY GRID */
+        /* CONTENT GRID */
         .main-content {
             width: 90%;
             max-width: 1400px;
             display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 100px;
+            grid-template-columns: 320px 1fr;
+            gap: 120px;
             margin-top: 80px;
             margin-bottom: 120px;
         }
 
-        /* Marginalia (Left side texts) */
+        /* MARGINALIA (LEFT) */
         .marginalia {
             font-family: "Futura", sans-serif;
             font-weight: 300;
@@ -71,30 +68,27 @@
             line-height: 2.2;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: #000;
         }
 
-        .marginalia-entry { margin-bottom: 80px; }
+        .marginalia-entry { margin-bottom: 90px; }
 
-        .score-image {
+        .score-artifact {
             width: 100%;
-            margin-top: 25px;
-            opacity: 1;
-            /* No invert filter here: assumes black on white */
+            margin-top: 30px;
+            display: block;
         }
 
-        /* Manifesto Body (Garamond) */
+        /* MANIFESTO BODY */
         .manifesto-body {
             font-family: "Garamond Premier Pro", "Garamond", serif;
             font-size: 1.3rem;
             line-height: 2;
             text-align: justify;
-            color: #000;
             white-space: pre-line;
             padding-right: 40px;
         }
 
-        /* 3. THE FOOTER */
+        /* FOOTER */
         .site-footer {
             width: 100%;
             text-align: center;
@@ -105,20 +99,12 @@
             text-transform: uppercase;
         }
         
-        .contact-link { 
-            text-decoration: none; 
-            color: #000; 
-            border-bottom: 1px solid transparent;
-            transition: border-bottom 0.3s ease;
-        }
-        
-        .contact-link:hover { border-bottom: 1px solid #000; }
-
+        .contact-link { text-decoration: none; color: #000; }
     </style>
 </head>
 <body>
 
-    <div class="header-container">
+    <header class="header-container">
         <div class="header-left">
             <span>YVASKA</span>
             <span>ARTIFACTS</span>
@@ -126,9 +112,9 @@
         </div>
         <div class="header-center">SIGILLUM</div>
         <div class="header-right">
-            <img src="logo.png" class="logo-img">
+            <img src="assets/Logo_Black.png" class="logo-img">
         </div>
-    </div>
+    </header>
 
     <div class="main-content">
         <aside class="marginalia">
@@ -144,7 +130,7 @@
                 Sanctus, Missa Salemnis, Op. 123 <br>
                 Beethoven, Ludwig van <br>
                 Piano reduction by yvaska
-                <img src="score1.png" class="score-image">
+                <img src="assets/Piano.png" class="score-artifact">
             </div>
 
             <div class="marginalia-entry">
@@ -152,7 +138,7 @@
                 Mass in b minor, Op. 232 <br>
                 Bach, Sebastian Johann <br>
                 Piano reduction by yvaska
-                <img src="score2.png" class="score-image">
+                <img src="assets/Piano.png" class="score-artifact">
             </div>
         </aside>
 
