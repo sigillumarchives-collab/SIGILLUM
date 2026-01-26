@@ -6,9 +6,19 @@
     <title>SIGILLUM</title>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #ffffff;
+            --ink-color: #000000;
+            /* Precise Font Sizes */
+            --header-size: 3.2rem;
+            --manifesto-size: 1.3rem;
+            --marginalia-size: 0.65rem;
+            --nav-size: 0.72rem;
+        }
+
         body, html {
-            background-color: #ffffff;
-            color: #000000;
+            background-color: var(--bg-color);
+            color: var(--ink-color);
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,108 +27,107 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 1. THE HEADER: REVERSED & CLEAN */
+        /* 1. THE HEADER */
         .site-header {
-            width: 92%;
-            max-width: 1500px;
-            display: grid;
-            grid-template-columns: 1fr 1.5fr 1fr;
-            padding: 85px 0 65px 0;
-            align-items: center;
-            /* No border/underline per design */
-        }
-
-        .header-left {
-            text-align: left;
-        }
-
-        .brand-logo { 
-            height: 52px; 
-            display: block;
-        }
-
-        .header-center {
-            font-family: 'Aboreto', cursive;
-            font-size: 3.4rem;
-            letter-spacing: 0.65em;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .header-right {
-            font-family: "Futura", "Futura-Light", sans-serif;
-            font-weight: 300;
-            font-size: 0.72rem;
-            letter-spacing: 0.42em;
-            text-transform: uppercase;
+            width: 90%;
+            max-width: 1600px;
             display: flex;
-            justify-content: flex-end;
-            gap: 32px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 0 60px 0;
         }
 
-        /* 2. THE MAIN CANVAS */
+        .header-left { flex: 1; text-align: left; }
+        .header-center { 
+            flex: 2; 
+            text-align: center;
+            font-family: 'Aboreto', cursive;
+            font-size: var(--header-size);
+            letter-spacing: 0.6em;
+            text-transform: uppercase;
+        }
+        .header-right { 
+            flex: 1; 
+            display: flex; 
+            justify-content: flex-end; 
+            gap: 30px;
+            font-family: "Futura", sans-serif;
+            font-weight: 300;
+            font-size: var(--nav-size);
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+        }
+
+        .brand-logo { height: 50px; }
+
+        /* 2. THE MAIN LAYOUT (Desktop) */
         .main-canvas {
             display: grid;
-            grid-template-columns: 340px 1fr;
-            width: 92%;
-            max-width: 1500px;
-            gap: 130px;
-            margin-top: 50px;
-            margin-bottom: 140px;
+            grid-template-columns: 300px 1fr;
+            width: 90%;
+            max-width: 1600px;
+            gap: 100px;
+            margin-top: 40px;
         }
 
-        /* Marginalia: The Archival Data on Left */
-        .marginalia-column {
+        /* Marginalia Style */
+        .marginalia {
             font-family: "Futura", sans-serif;
             font-weight: 300;
-            font-size: 0.65rem;
-            line-height: 2.3;
-            letter-spacing: 0.22em;
+            font-size: var(--marginalia-size);
+            line-height: 2.2;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
         }
 
-        .archival-entry { margin-bottom: 100px; }
+        .archival-entry { margin-bottom: 80px; }
+        .score-img { width: 100%; margin-top: 25px; }
 
-        .musical-fragment {
-            width: 100%;
-            margin-top: 38px;
-            display: block;
-        }
-
-        /* The Manifesto: Justified scholarly block */
+        /* Manifesto Style */
         .manifesto-body {
             font-family: "Garamond Premier Pro", "Garamond", serif;
-            font-size: 1.38rem;
-            line-height: 2.05;
+            font-size: var(--manifesto-size);
+            line-height: 2.1;
             text-align: justify;
-            color: #000;
             white-space: pre-line;
-            padding-right: 30px;
+            padding-right: 40px;
         }
 
-        /* 3. THE FOOTER */
+        /* 3. RESPONSIVE DESIGN FOR DIFFERENT SCREENS */
+        @media (max-width: 1024px) {
+            :root {
+                --header-size: 2.2rem;
+                --manifesto-size: 1.15rem;
+            }
+            .main-canvas {
+                grid-template-columns: 1fr; /* Stacked layout for tablet/mobile */
+                gap: 60px;
+            }
+            .marginalia {
+                border-bottom: 0.5px solid #eee;
+                padding-bottom: 40px;
+            }
+            .site-header { flex-direction: column; gap: 40px; }
+        }
+
+        /* 4. THE FOOTER */
         .site-footer {
-            width: 100%;
-            text-align: center;
-            padding: 110px 0 70px 0;
+            padding: 100px 0;
             font-family: "Futura", sans-serif;
-            font-size: 0.88rem;
-            letter-spacing: 0.65em;
+            font-size: 0.8rem;
+            letter-spacing: 0.6em;
             text-transform: uppercase;
         }
-
-        .contact-anchor { text-decoration: none; color: #000; }
+        .contact-link { text-decoration: none; color: #000; }
     </style>
 </head>
 <body>
 
     <header class="site-header">
         <div class="header-left">
-            <img src="assets/Logo_Black.png" class="brand-logo" alt="">
+            <img src="assets/Logo_Black.png" class="brand-logo">
         </div>
-        
         <div class="header-center">SIGILLUM</div>
-        
         <div class="header-right">
             <span>YVASKA</span>
             <span>ARTIFACTS</span>
@@ -127,28 +136,26 @@
     </header>
 
     <div class="main-canvas">
-        <aside class="marginalia-column">
+        <aside class="marginalia">
             <div class="archival-entry">
                 1. H. / SIGILLUM / <br>
                 STATEMENT ITS EXISTENCE, PRINCIPLES <br>
                 AND AIMS TO THE READER <br>
                 JAN, 19th 2026
             </div>
-
             <div class="archival-entry">
                 2. Preludeum, Bar 002 <br>
                 Sanctus, Missa Salemnis, Op. 123 <br>
                 Beethoven, Ludwig van <br>
                 Piano reduction by yvaska
-                <img src="assets/Piano.png" class="musical-fragment">
+                <img src="assets/Piano.png" class="score-img">
             </div>
-
             <div class="archival-entry">
                 3. Sanctus, Bar 002 <br>
                 Mass in b minor, Op. 232 <br>
                 Bach, Sebastian Johann <br>
                 Piano reduction by yvaska
-                <img src="assets/Piano.png" class="musical-fragment">
+                <img src="assets/Piano.png" class="score-img">
             </div>
         </aside>
 
@@ -168,10 +175,3 @@
             I would not be so harmful to speak about Yvaska, I can only say that I believe him of potential to be the artist of our age and all ages. One must support such who brings god down to us through his art and in need of much support we are. I would ask of you, dear reader, to know him through his art and his own words then through mine which are already in his shadow. Now, since I cannot stay though hopelessly it is to be wished, I must say my farewell. It was a pleasing thing to know you dear reader, I hope you’ll find us good.
         </main>
     </div>
-
-    <footer class="site-footer">
-        <a href="mailto:contact@sigillum.art" class="contact-anchor">CONTACT</a>
-    </footer>
-
-</body>
-</html>
