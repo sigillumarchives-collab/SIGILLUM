@@ -6,14 +6,9 @@
     <title>SIGILLUM</title>
     <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Futura-Light';
-            src: local('Futura Light'), local('Futura-Light'), local('Futura LT');
-        }
-        
         body, html {
-            background-color: #000000;
-            color: #ffffff;
+            background-color: #ffffff; /* Pure white background */
+            color: #000000; /* Pure black text */
             margin: 0;
             padding: 0;
             display: flex;
@@ -22,29 +17,31 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 1. THE HEADER: FIXED PROPORTIONS */
+        /* 1. THE HEADER */
         .header-container {
-            width: 95%;
-            max-width: 1600px;
+            width: 90%;
+            max-width: 1400px;
             display: grid;
-            grid-template-columns: 1fr 1.5fr 1fr; /* Exact spacing */
-            padding: 60px 0;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            padding: 80px 0 40px 0;
             align-items: center;
+            border-bottom: 0.5px solid #000; /* Sharp black line */
         }
 
         .header-left {
-            font-family: 'Futura-Light', sans-serif;
+            font-family: "Futura", "Trebuchet MS", sans-serif;
+            font-weight: 300;
             font-size: 0.7rem;
             letter-spacing: 0.4em;
             text-transform: uppercase;
             display: flex;
-            gap: 40px;
+            gap: 30px;
         }
 
         .header-center {
             font-family: 'Aboreto', cursive;
-            font-size: 2.8rem;
-            letter-spacing: 0.7em;
+            font-size: 3rem;
+            letter-spacing: 0.6em;
             text-align: center;
             text-transform: uppercase;
         }
@@ -53,61 +50,69 @@
             text-align: right;
         }
         
-        .logo-img { height: 50px; }
+        .logo-img { height: 60px; }
 
-        /* 2. THE MAIN CANVAS: MARGINALIA & BODY */
+        /* 2. THE MAIN BODY GRID */
         .main-content {
             width: 90%;
             max-width: 1400px;
             display: grid;
-            grid-template-columns: 320px 1fr; /* Marginalia width vs Body */
-            gap: 120px;
-            margin-top: 40px;
-            margin-bottom: 100px;
+            grid-template-columns: 300px 1fr;
+            gap: 100px;
+            margin-top: 80px;
+            margin-bottom: 120px;
         }
 
-        /* The Left Column: Marginalia & Scores */
+        /* Marginalia (Left side texts) */
         .marginalia {
-            font-family: 'Futura-Light', sans-serif;
-            font-size: 0.62rem;
+            font-family: "Futura", sans-serif;
+            font-weight: 300;
+            font-size: 0.65rem;
             line-height: 2.2;
-            letter-spacing: 0.18em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.6);
+            color: #000;
         }
 
-        .marginalia-entry { margin-bottom: 70px; }
+        .marginalia-entry { margin-bottom: 80px; }
 
         .score-image {
             width: 100%;
-            margin-top: 30px;
-            filter: invert(1);
-            opacity: 0.9;
+            margin-top: 25px;
+            opacity: 1;
+            /* No invert filter here: assumes black on white */
         }
 
-        /* The Center Block: Justified Manifesto */
+        /* Manifesto Body (Garamond) */
         .manifesto-body {
             font-family: "Garamond Premier Pro", "Garamond", serif;
             font-size: 1.3rem;
-            line-height: 1.95;
+            line-height: 2;
             text-align: justify;
-            color: #fff;
+            color: #000;
             white-space: pre-line;
-            padding-right: 50px;
+            padding-right: 40px;
         }
 
-        /* 3. THE FOOTER: CONTACT */
+        /* 3. THE FOOTER */
         .site-footer {
             width: 100%;
             text-align: center;
-            padding: 80px 0;
-            font-family: 'Futura-Light', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.6em;
+            padding: 100px 0 60px 0;
+            font-family: "Futura", sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.5em;
             text-transform: uppercase;
         }
         
-        .contact-link { text-decoration: none; color: #fff; }
+        .contact-link { 
+            text-decoration: none; 
+            color: #000; 
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s ease;
+        }
+        
+        .contact-link:hover { border-bottom: 1px solid #000; }
 
     </style>
 </head>
