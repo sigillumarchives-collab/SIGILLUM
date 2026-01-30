@@ -30,8 +30,10 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100vh;
-            overflow: hidden;
+            /* min-height and overflow:auto allow for proper mobile scrolling */
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -44,7 +46,6 @@
             width: 94%;
             display: grid;
             grid-template-columns: 1fr 2fr 1fr;
-            /* Central focus on Title */
             padding: 28px 0;
             align-items: center;
         }
@@ -55,7 +56,6 @@
 
         .logo-img {
             height: 48px;
-            /* Fixed height for proportion */
             width: auto;
         }
 
@@ -77,27 +77,21 @@
             text-transform: uppercase;
         }
 
-        /* 4. THE MAIN CANVAS GRID - REPLACED BY SPLIT LAYOUT */
+        /* 4. THE MAIN CANVAS GRID */
         .layout-wrapper {
             display: flex;
             width: 100%;
-            width: 100%;
             flex: 1;
             min-height: 0;
-            overflow: hidden;
         }
 
         .left-panel {
             flex: 1;
-            /* Takes up 50% */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* Center content horizontally */
             box-sizing: border-box;
-            /* background-color: red; */
-
             font-family: 'FuturaLT-Custom', sans-serif;
             text-transform: uppercase;
         }
@@ -129,12 +123,11 @@
 
         .right-panel {
             flex: 1;
-            /* Takes up 50% */
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow-y: auto;
+            /* Remove fixed overflow here to allow the main body to handle scrolling */
         }
 
         .archival-entry {
@@ -159,25 +152,24 @@
             height: auto;
         }
 
-        /* The Statement: The Centered Sacred Word */
+        /* The Statement: 20% Stroke Applied */
         .manifesto-body {
-            font-family: 'Garamond-PremerPro', serif;
+            font-family: 'Garamond-Custom', serif;
             font-size: 15px;
-            /* 34px */
             line-height: normal;
             text-align: justify;
-            /* Right-hand buffer */
             color: #000;
             max-width: 72%;
             margin: auto 0;
             padding: 40px 0;
+            -webkit-text-stroke: 0.3px #000;
         }
 
         .manifesto-body p {
             margin-bottom: 1.5em;
         }
 
-        /* 5. RESPONSIVE LOGIC */
+        /* 5. RESPONSIVE LOGIC: YOUR ORIGINAL MOBILE DESIGN */
         @media (max-width: 1024px) {
 
             body,
@@ -203,7 +195,6 @@
                 padding: 40px 0;
             }
 
-            /* Reset Left Panel Grid for vertical stacking */
             .left-panel-wrapper {
                 display: flex;
                 flex-direction: column;
@@ -220,7 +211,6 @@
                 text-align: center;
             }
 
-            /* Reset specific text alignments and paddings for mobile */
             .entry-text,
             .entry-text-2 {
                 padding: 12px 0 0 0;
@@ -259,8 +249,6 @@
             }
         }
 
-
-
         /* 6. THE FOOTER */
         .site-footer {
             font-family: 'FuturaLT-Custom', sans-serif;
@@ -269,6 +257,7 @@
             text-transform: uppercase;
             text-align: center;
             margin-bottom: 18px;
+            padding: 20px 0;
         }
 
         .contact-link {
@@ -293,12 +282,11 @@
     </header>
 
     <div class="layout-wrapper">
-
         <div class="left-panel">
             <div class="left-panel-wrapper">
                 <div class="archival-entry">
                     H. / SIGILLUM / <br>
-                    STATEMENT ITS EXISTENCE, PRINCIPLES <br>
+                    STATEMENT, ITS EXISTENCE, PRINCIPLES <br>
                     AND AIMS TO THE READER <br>
                     JAN, 19th 2026
                 </div>
@@ -325,74 +313,100 @@
 
         <div class="right-panel">
             <main class="manifesto-body">
-                <p>SIGILLUM is a single-name artistic imprint publishing musical compositions and poetry (with selected
-                    inheritances of the past) as artifacts and archiving the artist and his acts—work that is difficult
+                <p>SIGILLUM is a single-name artistic imprint publishing musical compositions and poetry <br>(with
+                    selected
+                    inheritances of the past) as artifacts and archiving the artist and his acts— <br>work that is
+                    difficult
                     by
-                    consequence, agonistic against time, in which there’s authority, and is catalogued scholarly, whose
+                    consequence, agonistic against time, in which there’s authority, <br>and is catalogued scholarly,
+                    whose
                     only
                     measure is ripeness and the wonder wounding quality.</p>
-
-                <p>We came to be after countless meetings and invaluable time spent with Yvaska (composer, poet) in
+                <p>We came to be after countless meetings and invaluable time spent with Yvaska (composer, <br>poet) in
                     Tokyo.
-                    Our position we find is as the flaming cherub guarding against a great rock in this extremely weary
-                    land. In times when commodity is branded as art, propaganda taken for poetry, and an artist of
+                    Our position we find is as the flaming cherub guarding against a great rock <br>in this extremely
+                    weary
+                    land. In times when commodity is branded as art, propaganda <br>taken for poetry, and an artist of
                     limited
-                    to no means necessarily forced to take part as a cog in the capitalist machinery of vanity and
-                    corruption—we endeavor to be the gentle robes that may to some extent sustain the artist in this
+                    to no means necessarily forced to take part as a <br>cog in the capitalist machinery of vanity and
+                    corruption—we endeavor to be the gentle <br>robes that may to some extent sustain the artist in this
                     windy
                     desolation.</p>
 
-                <p>Dear reader, we wish to be transparent but this opacity in our nature haunts us. We owe you the word,
-                    which in our case is not the first, we accept our belatedness, and though it be too frail to sustain
+                <p>Dear reader, we wish to be transparent but this opacity in our nature haunts us. We owe <br>you the
+                    word,
+                    which in our case is not the first, we accept our belatedness, and though it <br>be too frail to
+                    sustain
                     the
-                    flesh, bound by ordinance we still oblige you, dear reader, to concede and grant us your company for
+                    flesh, bound by ordinance we still oblige you, dear reader, to <br>concede and grant us your company
+                    for
                     a
                     brief while.</p>
 
-                <p>Though naming it avails not, what we call Art is divine by nature and the poet a religion of one. The
-                    true experience of a piece of art accordingly is a walk with god, a face to face, a wonder wounding,
+                <p>Though naming it avails not, what we call Art is divine by nature and the poet a religion of <br>one.
+                    The
+                    true experience of a piece of art accordingly is a walk with god, a face to face, a <br>wonder
+                    wounding,
                     a
-                    breaking of the vessels. It does not redeem the fall, it leaves us bereft, the walk ends and we are
-                    alone. And we can say that we do it much harm to survive the walk it being so majestic. It promises
+                    breaking of the vessels. It does not redeem the fall, it leaves us bereft, <br>the walk ends and we
+                    are
+                    alone. And we can say that we do it much harm to survive the walk <br>it being so majestic. It
+                    promises
                     us
-                    nothing, it is beyond morality, it is out of times bounds, it too will be when it will be. And it
-                    too is
-                    full of jealousy robbing us of simpler pleasures and filling us with general discontent. It is not
-                    for
-                    the masses, it is a lonesome face to face that is availed only to the solitary one.</p>
-
-                <p>Why then must you, dear reader, put up with all the hideousness that this face to face instills in
-                    one.
-                    I cannot answer it, dear reader, I only knew myself long after I’d already fallen. Time avails not,
-                    place avails not. The artist our only prophet and we concede ourselves to his art out of
-                    helplessness as
-                    the face to face is too direct, immediate and sublime to be consoled with reason and be denied.
-                    Then,
-                    dear reader, I could only entice you believing you are already wonder wounded and to be of this
-                    company
-                    of the fallen.</p>
-
-                <p>I still owe you, dear reader, why SIGILLUM? Take it as defiance against augury. There is nothing we
-                    can
-                    do for Shakespeare or Sebastian Bach, they encompass us and we occupy a place vaguely small in their
-                    huge world. If we be the company of the fallen, let us be three good friends and celebrate the fall,
-                    relish the exile and anticipate the upcoming walk. Let us be as pilgrims who led by the holy spirit
-                    that
-                    descends in Beethoven’s Benedictus to the gates of heaven and let the gates open for us as in Bach’s
-                    Sanctus. So in act let SIGILLUM be the pilgrimage besides one who is bearing the cross and we be
-                    solemn
-                    when solemnity is demanded and make merry when tis’ proper.</p>
-
-                <p>I would not be so harmful to speak about Yvaska, I can only say that I believe him of potential to be
-                    the artist of our age and all ages. One must support such who brings god down to us through his art
-                    and
-                    in need of much support we are. I would ask of you, dear reader, to know him through his art and his
-                    own
-                    words then through mine which are already in his shadow. Now, since I cannot stay though hopelessly
+                    nothing, it is beyond morality, it is out of times bounds, <br>it too will be when it will be. And
                     it
-                    is to be wished, I must say my farewell. It was a pleasing thing to know you dear reader, I hope
-                    you’ll
+                    too is
+                    full of jealousy robbing us of simpler pleasures <br>and filling us with general discontent. It is
+                    not
+                    for
+                    the masses, it is a lonesome face to face that <br>is availed only to the solitary one.</p>
+
+                <p>Why then must you, dear reader, put up with all the hideousness that this face to face instills
+                    <br>in
+                    one.
+                    I cannot answer it, dear reader, I only knew myself long after I’d already fallen. <br>Time avails
+                    not,
+                    place avails not. The artist our only prophet and we concede ourselves to his <br>art out of
+                    helplessness as
+                    the face to face is too direct, immediate and sublime to be consoled <br>with reason and be denied.
+                    Then,
+                    dear reader, I could only entice you believing you are <br>already wonder wounded and to be of this
+                    company
+                    of the fallen.
+                </p>
+
+                <p>I still owe you, dear reader, why SIGILLUM? Take it as defiance against augury. There is <br>nothing
+                    we
+                    can
+                    do for Shakespeare or Sebastian Bach, they encompass us and we occupy <br>a place vaguely small in
+                    their
+                    huge world. If we be the company of the fallen, let us be <br>three good friends and celebrate the
+                    fall,
+                    relish the exile and anticipate the upcoming walk. <br>Let us be as pilgrims who led by the holy
+                    spirit
+                    that
+                    descends in Beethoven’s Benedictus <br>to the gates of heaven and let the gates open for us as in
+                    Bach’s
+                    Sanctus. So in act let <br>SIGILLUM be the pilgrimage besides one who is bearing the cross and we be
+                    solemn
+                    <br>when solemnity is demanded and make merry when tis’ proper.
+                </p>
+
+                <p>I would not be so harmful to speak about Yvaska, I can only say that I believe him of <br>potential
+                    to be
+                    the artist of our age and all ages. One must support such who brings god <br>down to us through his
+                    art
+                    and
+                    in need of much support we are. I would ask of you, <br>dear reader, to know him through his art and
+                    his
+                    own
+                    words then through mine which <br>are already in his shadow. Now, since I cannot stay though
+                    hopelessly
+                    it
+                    is to be wished, <br>I must say my farewell. It was a pleasing thing to know you dear reader, I hope
+                    you’ll <br>
                     find us good.</p>
+                H.
             </main>
         </div>
     </div>
