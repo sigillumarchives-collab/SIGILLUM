@@ -55,13 +55,13 @@
         }
 
         .logo-img {
-            height: 48px;
+            height: 66px;
             width: auto;
         }
 
         .header-center {
             font-family: 'Aboreto-Custom', serif;
-            font-size: 32px;
+            font-size: 38px;
             letter-spacing: normal;
             text-align: center;
             text-transform: uppercase;
@@ -72,7 +72,7 @@
             justify-content: flex-end;
             gap: 68px;
             font-family: 'FuturaLT-Custom', sans-serif;
-            font-size: 16px;
+            font-size: 22px;
             letter-spacing: normal;
             text-transform: uppercase;
         }
@@ -131,11 +131,11 @@
         }
 
         .archival-entry {
-            font-size: 12px;
+            font-size: 16px;
         }
 
         .archival-entry-2 {
-            font-size: 10px
+            font-size: 12px;
         }
 
         .entry-text {
@@ -147,7 +147,7 @@
         }
 
         .score-fragment {
-            width: 291px;
+            width: 315px;
             max-width: 100%;
             height: auto;
         }
@@ -155,7 +155,7 @@
         /* The Statement: 20% Stroke Applied */
         .manifesto-body {
             font-family: 'Garamond-Custom', serif;
-            font-size: 15px;
+            font-size: 21px;
             line-height: normal;
             text-align: justify;
             color: #000;
@@ -169,8 +169,15 @@
             margin-bottom: 1.5em;
         }
 
-        /* 5. RESPONSIVE LOGIC: YOUR ORIGINAL MOBILE DESIGN */
-        @media (max-width: 1024px) {
+        .manifesto-signature {
+            text-align: right !important;
+            margin-top: 0;
+            width: 100%;
+            display: block;
+        }
+
+        /* 5. RESPONSIVE LOGIC: MOBILE ONLY */
+        @media (max-width: 1080px) {
 
             body,
             html {
@@ -179,7 +186,24 @@
             }
 
             .site-header {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
                 padding: 20px 0;
+            }
+
+            .header-left {
+                text-align: center;
+            }
+
+            .header-center {
+                font-size: 30px;
+            }
+
+            .header-right {
+                justify-content: center;
+                gap: 20px;
+                font-size: 14px;
             }
 
             .layout-wrapper {
@@ -211,6 +235,14 @@
                 text-align: center;
             }
 
+            .archival-entry {
+                font-size: 14px;
+            }
+
+            .archival-entry-2 {
+                font-size: 12px;
+            }
+
             .entry-text,
             .entry-text-2 {
                 padding: 12px 0 0 0;
@@ -218,41 +250,20 @@
             }
 
             .manifesto-body {
-                max-width: 90%;
+                max-width: 100%;
                 padding: 0;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .site-header {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                text-align: center;
+                font-size: 18px;
             }
 
-            .header-left {
-                text-align: center;
-            }
-
-            .header-center {
-                font-size: 24px;
-            }
-
-            .header-right {
-                justify-content: center;
-                gap: 20px;
+            .site-footer {
                 font-size: 14px;
-            }
-
-            .manifesto-body {
-                font-size: 16px;
             }
         }
 
         /* 6. THE FOOTER */
         .site-footer {
             font-family: 'FuturaLT-Custom', sans-serif;
-            font-size: 16px;
+            font-size: 22px;
             letter-spacing: normal;
             text-transform: uppercase;
             text-align: center;
@@ -285,8 +296,8 @@
         <div class="left-panel">
             <div class="left-panel-wrapper">
                 <div class="archival-entry">
-                    H. / SIGILLUM / <br>
-                    STATEMENT, ITS EXISTENCE, PRINCIPLES <br>
+                    H. / SIGILLUM / STATEMENT<br>
+                    ITS EXISTENCE, PRINCIPLES <br>
                     AND AIMS TO THE READER <br>
                     JAN, 19th 2026
                 </div>
@@ -406,7 +417,7 @@
                     is to be wished, <br>I must say my farewell. It was a pleasing thing to know you dear reader, I hope
                     you’ll <br>
                     find us good.</p>
-                H.
+                <p class="manifesto-signature"></p>H.</p>
             </main>
         </div>
     </div>
