@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "yvaska.com"
+        }
+      ],
+      "destination": "https://sigillum.art/yvaska/:path*",
+      "permanent": true
+    }
+  ]
+}
