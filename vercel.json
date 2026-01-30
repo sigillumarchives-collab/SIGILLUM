@@ -8,7 +8,7 @@
           "value": "yvaska.com"
         }
       ],
-      "destination": "https://sigillum.art/yvaska/:path*",
+      "destination": "https://www.sigillum.art/yvaska/:path*",
       "permanent": true
     },
     {
@@ -19,7 +19,7 @@
           "value": "www.yvaska.com"
         }
       ],
-      "destination": "https://sigillum.art/yvaska/:path*",
+      "destination": "https://www.sigillum.art/yvaska/:path*",
       "permanent": true
     }
   ]
